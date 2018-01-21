@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Goh Chan Sing</title>
+      <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/guardian.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html"><img src="media/portrait.jpg" alt="image is missing" height="38px" style="border-radius:50%"> Goh Chan Sing</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="work.html">Work & Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="achieve.html">Achievements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="service.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="guardianbody">
+    <div class="jumbotron jumbotron-fluid title" style="padding: 30px 10px;    margin-top: 76px;">
+      <h3>Project Guardian:</h3>
+      <h4>What-if Analysis for Antimicrobial Stewardship</h4>
+      <h4>Current Month: <span id="mon">January</span>,  Current Average of Past 2 Month's MRSA Cases: 14.5 Cases</h4>
+    </div>
+    <div class="container">
+      <ul class="listhead">
+        <li>
+          <div>Aminoglycosides/Glycopeptides:</div>
+          <table>
+            <tr valign="bottom">
+              <td class="colhead">
+                <div class="row">
+                  <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <p>Amikacin:(Current average of past 2 months' usage = <span class="current"id="vAmikacin">4</span>grams) <br/>Use <span id=PlanAmi></span>g per month in the next 6 months</p>
+                  </div>
+                  <div class="slidecontainer col-xs-12  col-sm-12 col-md-3 col-lg-3">
+                    <input type="range" min="-100" max="100" value="0" class="slider" id="AmikacinSlide">
+                  </div>
+                </div>
+              </td>
+              <td align="right">
+                <p>Change by<br/>
+                  <input type="number" class="SV" id="AmiSV" placeholder="">&nbsp;%
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colhead">
+                <div class="row">
+                  <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <p>Gentamicin:(Current average of past 2 months' usage = <span class="current"id="vGentamicin">15.16</span>grams) <br/>Use <span id=PlanGent></span>g per month in the next 6 months</p>
+                  </div>
+                  <div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <input type="range" min="-100" max="100" value="0" class="slider" id="GentamicinSlide">
+                  </div>
+                </div>
+              </td>
+              <td align="right">
+                <p>Change by<br/> <input type="number" class="SV" id="GentSV" placeholder="">&nbsp;%</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colhead">
+                <div class="row">
+                  <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <p>Vancomycin:(Current average of past 2 months' usage = <span class="current"id="vVancomycin">93</span>grams) <br/>Use <span id=PlanVanco></span>g per month in the next 6 months</p>
+                  </div>
+                  <div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                      <input type="range" min="-100" max="100" value="0" class="slider" id="VancomycinSlide">
+                  </div>
+                </div>
+              </td>
+              <td align="right">
+                <p>Change by<br/> <input type="number" class="SV" id="VancoSV" placeholder="">&nbsp;%</p>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li>
+          <div>Carbapenems:</div>
+          <table>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Ertapenem:(Current average of past 2 months' usage = <span class="current"id="vErtapenem">4</span>grams) <br/>Use <span id=PlanErta></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="ErtapenemSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="ErtaSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Imipenem:(Current average of past 2 months' usage = <span class="current"id="vImipenem">30.5</span>grams) <br/>Use <span id=PlanImi></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="ImipenemSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="ImiSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Meropenem:(Current average of past 2 months' usage = <span class="current"id="vMeropenem">187.5</span>grams) <br/>Use <span id=PlanMero></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="MeropenemSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="MeroSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+        </table>
+      </li>
+        <li>
+            <div>Cephalosporins:</div>
+        <table>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Cefuroxime:(Current average of past 2 months' usage = <span class="current"id="vCefuroxime">2037</span>grams) <br/>Use <span id=PlanCefu></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CefuroximeSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CefuSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Ceftriaxone:(Current average of past 2 months' usage = <span class="current"id="vCeftriaxone">517</span>grams) <br/>Use <span id=PlanCeftr></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CeftriaxoneSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CeftrSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Cefotaxime:(Current average of past 2 months' usage = <span class="current"id="vCefotaxime">44.5</span>grams) <br/>Use <span id=PlanCefot></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CefotaximeSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CefotSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Ceftazidime:(Current average of past 2 months' usage = <span class="current"id="vCeftazidime">310.5</span>grams) <br/>Use <span id=PlanCefta></span>g per month in the next 6 months</p></div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CeftazidimeSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CeftaSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Cefoperazone:(Current average of past 2 months' usage = <span class="current"id="vCefoperazone">450</span>grams) <br/>Use <span id=PlanCefop></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CefoperazoneSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CefopSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead">
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                  <p>Sulperazone:(Current average of past 2 months' usage = <span class="current"id="vSulperazone">2</span>grams) <br/>Use <span id=PlanSulp></span>g per month in the next 6 months</p>
+                </div>
+                <div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                  <input type="range" min="-100" max="100" value="0" class="slider" id="SulperazoneSlide">
+                </div>
+              </div>
+            </td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="SulpSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Cefepime:(Current average of past 2 months' usage = <span class="current"id="vCefepime">134</span>grams) <br/>Use <span id=PlanCefep></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CefepimeSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CefepSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+        </table>
+          </li>
+
+        <li>
+            <div>Fluoroquinolones:</div>
+        <table>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Ciprofloxacin:(Current average of past 2 months' usage = <span class="current"id="vCiprofloxacin">134</span>grams) <br/>Use <span id=PlanCipro></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="CiprofloxacinSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="CiproSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+        </table>
+            </li>
+        <li>
+            <div>Penicillins:</div>
+        <table>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Augmentin:(Current average of past 2 months' usage = <span class="current"id="vAugmentin">571.5</span>grams) <br/>Use <span id=PlanAugm></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="AugmentinSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="AugmSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Tazocin:(Current average of past 2 months' usage = <span class="current"id="vTazocin">2515.5</span>grams) <br/>Use <span id=PlanTazo></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="TazocinSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="TazoSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Unasyn:(Current average of past 2 months' usage = <span class="current"id="vUnasyn">1287.5</span>grams) <br/>Use <span id=PlanUna></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="UnasynSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="UnaSV" placeholder="">&nbsp;&nbsp;%</p></td>
+          </tr>
+        </table>
+          </li>
+
+        <li>
+            <div>Polymyxins:</div>
+        <table>
+          <tr>
+            <td class="colhead"><div class="row"><div class="col-md-9 col-lg-9 col-sm-12 col-xs-12"><p>Colistin:(Current average of past 2 months' usage = <span class="current"id="vColistin">2.24</span>grams) <br/>Use <span id=PlanColis></span>g per month in the next 6 months</p>
+            </div><div class=" slidecontainer col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <input type="range" min="-100" max="100" value="0" class="slider" id="ColistinSlide">
+            </div></div></td>
+            <td align="right"><p>Change by<br/> <input type="number" class="SV" id="ColisSV" placeholder="">&nbsp;%</p></td>
+          </tr>
+          </table>
+        </li>
+      </ul>
+      <div class="modal fade" id="result" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Result</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container" id="report" style="padding:20px 20px"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="recommend" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Recommend</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="container" id="report" style="padding:20px 20px">
+                <p>Recommend a plan to get MRSA <input type="number" class="" id="RecomMRSA" placeholder="">per month in the next 6 months</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" id="recom">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="button" class="btn btn-danger btn-lg" id="reset">Reset</button>
+      <button type="button" class="btn btn-outline-danger btn-lg" id="predict" data-toggle="modal" data-target="#result">Predict</button>
+      <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#recommend">Recommend</button>
+      <p><strong>Disclaimer</strong>: This site is a prototype. The prediction model is made with Machine Learning on an extrapolated dataset and is thus inaccuarate.</p>
+    </div>
+    </div>
+    <div style="height:10px"></div>
+
+
+    <div style="height:100px"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="jscript/guardian.js"></script>
+  </body>
+</html>

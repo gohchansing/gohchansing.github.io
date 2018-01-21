@@ -1,0 +1,173 @@
+body .guardianbody{
+    font-family: 'Raleway', sans-serif;
+}
+.title,.buttons,#report {
+  text-align: center;
+}
+.buttons{
+    padding: 10px 10px 0px 10px;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+
+    -webkit-box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+    -moz-box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+    box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+}
+.buttons>button{
+  min-width: 30vw;
+}
+
+.navbar{
+    background-color: crimson;position: fixed;
+    width: 100vw !important; top:0;
+    z-index: 2000;
+}
+
+.listhead li{
+  font-weight: bold;
+}
+
+.jumbotron {
+  padding: 1px;
+  background-color: #ffb3b3;
+
+    -webkit-box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+-moz-box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+}
+.modal{
+    margin-top: 20vh;
+}
+.SV {
+  width: 60px;
+}
+
+input {
+    text-align: right;
+}
+.colhead {
+/*  width: 700px;*/
+}
+
+.listhead {
+    padding: 0;
+    list-style-type: none;
+}
+.listhead li{
+    -webkit-box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+-moz-box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+box-shadow: -1px 4px 36px 0px rgba(209,205,209,0.75);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+/*    padding: 30px 30px;*/
+/*    border: 5px solid red;*/
+}
+.listhead li>div{
+
+    font-weight: 900;
+    font-size: 1.2em;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    background-color: crimson;
+}
+
+.listhead li table{
+
+    width: 95%;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.listhead li span{
+    font-weight: 900;
+    font-size: 1.2em;
+}
+table {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+td {
+  width: 130px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:20px;
+
+}
+td:first-child {
+    width: auto;
+  padding-left:20px;
+  padding-right:20;
+}
+tr:nth-child(even) {
+    background-color: #ffb3b345;
+    border-radius: 25px;
+}
+
+.btn-danger {
+  background-color: crimson;
+}
+
+#report {
+  font-size: 20px;
+  font-weight: bold;
+/*  border: solid 2px #990000;*/
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+    margin-top: auto;
+    margin-bottom: auto
+   }
+
+    /* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+/*    background: #d3d3d3;  Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 1px solid #b0a9b0;
+  }
+
+    /* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    border: 2px solid crimson;
+
+    }
+
+    /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 10px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #990000; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%;
+    }
+
+.slider::-moz-range-thumb {
+    width: 10px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #990000; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%;
+    }
