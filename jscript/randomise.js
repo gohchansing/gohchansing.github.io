@@ -29,42 +29,67 @@ function randomise(){
     requiredOK = false
   }
 
+  //permutation function https://stackoverflow.com/questions/9960908/permutations-in-javascript
+  function permutator(inputArr) {
+    var results = [];
+
+    function permute(arr, memo) {
+      var cur, memo = memo || [];
+
+      for (var i = 0; i < arr.length; i++) {
+        cur = arr.splice(i, 1);
+        if (arr.length === 0) {
+          results.push(memo.concat(cur));
+        }
+        permute(arr.slice(), memo.concat(cur));
+        arr.splice(i, 0, cur[0]);
+      }
+
+      return results;
+    }
+
+    return permute(inputArr);
+  }
+
   var randomiselist = []
 
-  // check if blocks are divisible by ammount of groups
+  // check if blocks OK
   if (block.length>0) {
-    var blockOK = true
+    // check if blocks are divisible by ammount of groups
     var grouplen = group.length
+    var blocksizeOK = false
     for (var i = 0; i < block.length; i++) {
-      if(block[i]%grouplen>0){
-          blockOK = false
+      if(block[i]%grouplen==0){
+          blocksizeOK = true
       }
     }
 
+    // check samplesize can be sorted into blocks
+    var blockfitOK = false
+    block_size_permute = permutator(block)
+    console.log('test!')
+    if (blocksizeOK) {
+      for (var i = 0; i < block_size_permute.length && !(blockfitOK); i++) {
+        block_size_permutation = block_size_permute[i]
+        console.log(block_size_permutation)
+        var test_sample_baki = sample
+        for (var j = 0; j < block_size_permutation.length && !(blockfitOK); j++) {
+          block_size = block_size_permutation[j]
+          console.log (block_size)
+          test_sample_baki = test_sample_baki%block_size
+          console.log (test_sample_baki)
+          if (test_sample_baki === 0) {
+            blockfitOK = true
+            break
+          }
+        }
+      }
+    }
+
+    var blockOK = blocksizeOK && blockfitOK
+
     //randomise
     if (blockOK == true && requiredOK == true) {
-      //permutation function https://stackoverflow.com/questions/9960908/permutations-in-javascript
-      function permutator(inputArr) {
-        var results = [];
-
-        function permute(arr, memo) {
-          var cur, memo = memo || [];
-
-          for (var i = 0; i < arr.length; i++) {
-            cur = arr.splice(i, 1);
-            if (arr.length === 0) {
-              results.push(memo.concat(cur));
-            }
-            permute(arr.slice(), memo.concat(cur));
-            arr.splice(i, 0, cur[0]);
-          }
-
-          return results;
-        }
-
-        return permute(inputArr);
-      }
-
       //generate permutations
       var permutations = []
       for (var i = 0; i < block.length; i++) {
@@ -83,22 +108,42 @@ function randomise(){
         return arr[Math.floor(Math.random() * arr.length)];
       }
 
-      randomiselist = []
-      var blocknum = 1
-      while (sample>randomiselist.length) {
-        var permutepick = random(permutations)
-        var lengthpick = permutepick['length']
-        var blockpick = random(permutepick['perm'])
-        for (var i = 0; i < blockpick.length; i++) {
-          randomiselist.push([lengthpick,blockpick[i],blocknum])
-        }
-        blocknum ++
+      // function to sum array
+      function add(accumulator, a) {
+          return accumulator + a;
       }
 
-      //remove extra
-      var extra = randomiselist.length - sample;
-      for (var i = 0; i < extra; i++) {
-        randomiselist.pop()
+      //fuction to generate block list
+      function generateblockarr(){
+        var blockarr = []
+        while (blockarr.reduce(add,0) < sample) {
+          blockarr.push(random(block))
+        }
+        return blockarr
+      }
+
+      // keep trying to generate block list until the blocks fit sample perfectly
+      var blockarr = []
+      while (blockarr.reduce(add,0) != sample) {
+        blockarr = generateblockarr()
+      }
+
+      //generate the randomise list
+      randomiselist = []
+      for (var i = 0; i < blockarr.length; i++) {
+        item = blockarr[i]
+        for (var j = 0; j < permutations.length; j++) {
+          if (permutations[j]['length'] === item) {
+            var permutepick = permutations[j]
+          }
+
+        }
+        var lengthpick = item
+        var blockpick = random(permutepick['perm'])
+        for (var j = 0; j < blockpick.length; j++) {
+          randomiselist.push([lengthpick,blockpick[j],i+1])
+        }
+
       }
 
       //print index
