@@ -58,14 +58,20 @@
             <small id="emailHelp" class="form-text text-muted">Seperate groups by comma(,). Don't add space before or after a comma.</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Permuted Blocks<span>(optional)</span></label>
+            <label for="exampleInputPassword1">Permuted Blocks<span> (optional)</span></label>
             <input type="" class="form-control" id="block" placeholder="e.g. 2,4">
             <small id="emailHelp" class="form-text text-muted">Seperate by comma(,). Don't add space before or after a comma.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Seed Number<span> (optional)</span></label>
+            <input type="" class="form-control" id="seed" placeholder="">
+            <small id="emailHelp" class="form-text text-muted">If you used this program before, it will give you a seed number. Insert the seed number here to re-generate the same randomisation</small>
           </div>
           <button class="btn btn-primary" onclick="randomise()">Randomise!</button>
         </div>
         <div class="col">
           <h4>Result</h4>
+          <div id="Result_Info"></div>
           <table class="table">
             <thead id='result_thead'>
             </thead>

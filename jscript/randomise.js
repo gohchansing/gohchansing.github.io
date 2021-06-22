@@ -1,7 +1,8 @@
 function randomise(){
   //empty result
-    $('#result_thead').empty()
-    $('#result_tbody').empty()
+  $('#Result_Info').empty()
+  $('#result_thead').empty()
+  $('#result_tbody').empty()
 
   // get settings
   var sample = parseInt($('#sample').val())
@@ -19,6 +20,7 @@ function randomise(){
   block = block.filter(function (value) {
     return !Number.isNaN(value);
   })
+  var seed = parseInt($('#seed').val())
 
   // check if no null in required
   var requiredOK = true
@@ -53,6 +55,30 @@ function randomise(){
 
   var randomiselist = []
 
+  // the psudeo-random number generator. Refer to https://www.khanacademy.org/computer-programming/prng-test/5500564014432256
+  var PRNG = function(seed){
+      this._seed = seed % 2147483647;
+      if (this._seed <= 0){ this._seed += 2147483646;}
+  };
+
+  PRNG.prototype.next = function(a,b){
+      this._seed = this._seed * 16807 % 2147483647;
+      if(arguments.length === 0){
+          return this._seed/2147483647;
+      }else if(arguments.length === 1){
+          return (this._seed/2147483647)*a;
+      }else{
+          return (this._seed/2147483647)*(b-a)+a;
+      }
+  };
+
+  // generate a seed if no seed
+  if (isNaN(seed)) {
+    var seed = Math.floor(Math.random() * (8999999999) + 1000000000)
+  }
+
+  var rng = new PRNG(seed);
+
   // check if blocks OK
   if (block.length>0) {
     // check if blocks are divisible by ammount of groups
@@ -67,17 +93,13 @@ function randomise(){
     // check samplesize can be sorted into blocks
     var blockfitOK = false
     block_size_permute = permutator(block)
-    console.log('test!')
     if (blocksizeOK) {
       for (var i = 0; i < block_size_permute.length && !(blockfitOK); i++) {
         block_size_permutation = block_size_permute[i]
-        console.log(block_size_permutation)
         var test_sample_baki = sample
         for (var j = 0; j < block_size_permutation.length && !(blockfitOK); j++) {
           block_size = block_size_permutation[j]
-          console.log (block_size)
           test_sample_baki = test_sample_baki%block_size
-          console.log (test_sample_baki)
           if (test_sample_baki === 0) {
             blockfitOK = true
             break
@@ -105,7 +127,8 @@ function randomise(){
 
       //random pick function
       function random(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
+        return arr[Math.floor(rng.next() * arr.length)];
+        // return arr[Math.floor(Math.random() * arr.length)];
       }
 
       // function to sum array
@@ -152,6 +175,7 @@ function randomise(){
       }
 
       //output in html
+      $('#Result_Info').append('<p>Seed Number: ' + seed + '</p>')
       $('#result_thead').append('<tr><th scope="col">#</th><th scope="col">Block#</th><th scope="col">Block Size</th><th scope="col">Group</th></tr>')
 
       for (var i = 0; i < randomiselist.length; i++) {
@@ -181,7 +205,7 @@ function randomise(){
         while (m) {
 
           // Pick a remaining element…
-          i = Math.floor(Math.random() * m--);
+          i = Math.floor(rng.next() * m--);
 
           // And swap it with the current element.
           t = array[m];
@@ -206,6 +230,7 @@ function randomise(){
       }
 
       //output in html
+      $('#Result_Info').append('<p>Seed Number: ' + seed + '</p>')
       $('#result_thead').append('<tr><th scope="col">#</th><th scope="col">Group</th></tr>')
 
       for (var i = 0; i < randomiselist.length; i++) {
