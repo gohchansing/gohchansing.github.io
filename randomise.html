@@ -44,8 +44,9 @@
     </nav>
     <div class="jumbotron">
       <h1 class="text-center">Clinical Trial Randomiser</h1>
+      <h6 class="text-center">Version 2</h6>
       <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4">
           <h4>Settings</h4>
           <div class="form-group">
             <label for="exampleInputEmail1">Sample Size<span style="color:red">*(required)</span></label>
@@ -68,6 +69,9 @@
             <small id="emailHelp" class="form-text text-muted">If you used this program before, it will give you a seed number. Insert the seed number here to re-generate the same randomisation</small>
           </div>
           <button class="btn btn-primary" onclick="randomise()">Randomise!</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            About
+          </button>
         </div>
         <div class="col">
           <h4>Result</h4>
@@ -78,6 +82,51 @@
             <tbody id='result_tbody'>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">About Clinical Trial Randomiser</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Clinical Trial Randomiser is a tool to generate randomised list for conducting randomised control trials<br>
+              Version 2, updated 25 June 2021<br>
+              Copyright (C) 2020-2021 Goh Chan Sing<br>
+              <br>
+              You can use this software for free for any legal purposes.<br>
+              However, if you are using it in a research, if would be helpful if you cite this software in your paper!<br>
+              <ul>
+                <li>
+                  Either in your methods (Example):<br>
+                  The randomised list was generated using Clinical Trial Randomiser (Available from https://gohchansing.github.io/randomise.html), version 2
+                </li>
+                <li>
+                  Or in your citations (Example):<br>
+                  Goh, CS.(2020). Clinical Trial Randomiser (Version 2) [Software]. Available from https://gohchansing.github.io/randomise.html
+                </li>
+              </ul>
+            </p>
+            <p>
+              Thanks to these wonderful people whose codes contributed to this software:
+              <ul>
+                <li><a href="https://stackoverflow.com/questions/9960908/permutations-in-javascript">delimited</a> for the Permutation Function</li>
+                <li><a href="https://gist.github.com/blixt/f17b47c62508be59987b">blixt</a> for the Pseudo-Random Number Generator Function</li>
+                <li><a href="https://bost.ocks.org/mike/shuffle/">Mike Bostock</a> for the Shuffle Function</li>
+              </ul>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
